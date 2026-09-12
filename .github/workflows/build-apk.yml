@@ -25,14 +25,15 @@ jobs:
       - name: Install Node Packages
         run: |
           npm install
-          npm install @capacitor/core @capacitor/cli @capacitor/android
+          npm install @capacitor/core @capacitor/cli @capacitor/android --save
 
       - name: Build Web App
         run: npm run build
 
-      - name: Generate Android APK Code
+      - name: Initialize Capacitor & Add Android
         run: |
-          npx cap add android
+          npx cap init "Mafia App" "com.mody2024.mafiaapp" --web-dir dist --yes || true
+          npx cap add android || true
           npx cap sync android
 
       - name: Compile APK
