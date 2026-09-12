@@ -1,0 +1,6 @@
+{
+  "name": "Mafia — Offline Moderator",
+  "description": "An offline companion and moderator for the physical Mafia card deck featuring night tracking, secret actions, day voting, and Egyptian card aesthetics.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,152 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-dark: #140d09;
+    --bg-card: #20150f;
+    --gold-primary: #d4af37;
+    --gold-light: #f3d87f;
+    --gold-dark: #8c6a18;
+    --parchment: #ede3ce;
+    --burgundy: #54111d;
+    --burgundy-dark: #380a12;
+    --ivory: #fcf8ee;
+  }
+
+  body {
+    background-color: #140d09;
+    color: #ede3ce;
+    font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, "Amiri", "Traditional Arabic", serif;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    overflow-x: hidden;
+  }
+}
+
+/* Antique Double Gold Border */
+.border-gold-double {
+  border: 3px double #c59b27;
+}
+
+.border-gold-single {
+  border: 1px solid rgba(212, 175, 55, 0.4);
+}
+
+.border-gold-glow {
+  border: 1px solid #d4af37;
+  box-shadow: 0 0 14px rgba(212, 175, 55, 0.25);
+}
+
+/* Distressed Egyptian Card Texture & Vignette */
+.card-texture {
+  background: radial-gradient(circle at 50% 20%, #281a13 0%, #1a100a 80%, #120b07 100%);
+  position: relative;
+}
+
+.parchment-card {
+  background: radial-gradient(circle at 50% 30%, #f4ebd8 0%, #e2d3b5 80%, #d4c19c 100%);
+  color: #2b170c;
+  box-shadow: inset 0 0 30px rgba(80, 50, 20, 0.25), 0 8px 24px rgba(0, 0, 0, 0.6);
+}
+
+.burgundy-card {
+  background: radial-gradient(circle at 50% 30%, #5e1422 0%, #3e0b14 85%, #27060c 100%);
+  color: #f7eed7;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5), 0 6px 20px rgba(0, 0, 0, 0.6);
+}
+
+/* Subtle corner decorations */
+.corner-ornament::before,
+.corner-ornament::after {
+  content: "♦";
+  position: absolute;
+  font-size: 10px;
+  color: #c59b27;
+  opacity: 0.8;
+}
+
+.corner-ornament::before {
+  top: 4px;
+  left: 6px;
+}
+
+.corner-ornament::after {
+  bottom: 4px;
+  right: 6px;
+}
+
+/* Gold Shimmer Effect */
+@keyframes goldShimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.gold-shimmer {
+  background: linear-gradient(90deg, #c59b27 0%, #ffeaa7 50%, #c59b27 100%);
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: goldShimmer 4s infinite linear;
+}
+
+/* Subtle Crackle Keyframe */
+@keyframes crackAppear {
+  0% { opacity: 0; transform: scale(0.96); }
+  60% { opacity: 1; transform: scale(1.02); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.animate-crack {
+  animation: crackAppear 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 12px rgba(212, 175, 55, 0.2); }
+  50% { box-shadow: 0 0 24px rgba(212, 175, 55, 0.45); }
+}
+
+.animate-pulse-gold {
+  animation: pulseGlow 2.5s infinite ease-in-out;
+}
+
+@keyframes pulseTension {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 10px rgba(220, 53, 69, 0.2); }
+  50% { transform: scale(1.03); box-shadow: 0 0 22px rgba(220, 53, 69, 0.5); }
+}
+
+.animate-tension {
+  animation: pulseTension 1s infinite ease-in-out;
+}
+
+/* Card Bevel and Luxury Border */
+.card-emboss {
+  box-shadow: inset 0 1px 0 rgba(255, 235, 170, 0.15), inset 0 -1px 0 rgba(0, 0, 0, 0.6), 0 4px 15px rgba(0, 0, 0, 0.7);
+}
+
+.gold-bevel {
+  border-top: 1px solid rgba(245, 215, 127, 0.4);
+  border-bottom: 1px solid rgba(140, 106, 24, 0.6);
+}
+
+/* RTL Typography refinements */
+[dir="rtl"] {
+  font-family: "Amiri", "Traditional Arabic", "Cairo", serif, system-ui;
+  letter-spacing: normal !important;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #180f0b;
+}
+::-webkit-scrollbar-thumb {
+  background: #5a3f1b;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #8b642a;
+}
